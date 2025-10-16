@@ -3,10 +3,22 @@
 	/// <summary> Класс, содержащий информацию о студенте </summary>
 	public class Student : IValidatable
 	{
+		/// <summary> Счётчик идентификаторов  </summary>
+		private static int s_newId = 0;
+
+		/// <summary> Свойство, возвращающее новый идентификатор для объекта </summary>
+		private static int NewId => s_newId++;
+
+		/// <summary> Идентификатор </summary>
+		public int Id { get; init; }
+
 		/// <summary>
 		/// Пустой конструтор студента с занулёнными полями
 		/// </summary>
-		public Student() { }
+		public Student() 
+		{
+			this.Id = NewId;
+		}
 
 		/// <summary>
 		/// Конструктор студента с параметрами
@@ -19,6 +31,7 @@
 		public Student(Address address, string phone, string name,
 			string surname, string patronim = "")
 		{
+			this.Id = NewId;
 			this.Name = name;
 			this.Surname = surname;
 			this.Patronim = patronim;
