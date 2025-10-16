@@ -25,7 +25,7 @@
 		///  Required method for Designer support - do not modify
 		///  the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent()
+		private void InitializeComponent ()
 		{
 			menuStrip1 = new MenuStrip();
 			toolStripMenuItemFile = new ToolStripMenuItem();
@@ -36,15 +36,21 @@
 			ClassesToolStripMenuItem = new ToolStripMenuItem();
 			toolStripMenuItemAddClass = new ToolStripMenuItem();
 			toolStripMenuItemEditClass = new ToolStripMenuItem();
+			планToolStripMenuItem = new ToolStripMenuItem();
+			добавитьToolStripMenuItem = new ToolStripMenuItem();
+			редактироватьToolStripMenuItem = new ToolStripMenuItem();
 			tabControlMain = new TabControl();
 			tabPageStudents = new TabPage();
 			tabPageClasses = new TabPage();
 			tabPagePlans = new TabPage();
-			планToolStripMenuItem = new ToolStripMenuItem();
-			добавитьToolStripMenuItem = new ToolStripMenuItem();
-			редактироватьToolStripMenuItem = new ToolStripMenuItem();
+			listViewStudents = new ListView();
+			listViewClasses = new ListView();
+			listViewPlans = new ListView();
 			menuStrip1.SuspendLayout();
 			tabControlMain.SuspendLayout();
+			tabPageStudents.SuspendLayout();
+			tabPageClasses.SuspendLayout();
+			tabPagePlans.SuspendLayout();
 			SuspendLayout();
 			// 
 			// menuStrip1
@@ -112,6 +118,25 @@
 			toolStripMenuItemEditClass.Text = "&Редактировать";
 			toolStripMenuItemEditClass.Click += ClassEditStripMenuItem_Click;
 			// 
+			// планToolStripMenuItem
+			// 
+			планToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem, редактироватьToolStripMenuItem });
+			планToolStripMenuItem.Name = "планToolStripMenuItem";
+			планToolStripMenuItem.Size = new Size(48, 20);
+			планToolStripMenuItem.Text = "&План";
+			// 
+			// добавитьToolStripMenuItem
+			// 
+			добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
+			добавитьToolStripMenuItem.Size = new Size(154, 22);
+			добавитьToolStripMenuItem.Text = "&Добавить";
+			// 
+			// редактироватьToolStripMenuItem
+			// 
+			редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+			редактироватьToolStripMenuItem.Size = new Size(154, 22);
+			редактироватьToolStripMenuItem.Text = "&Редактировать";
+			// 
 			// tabControlMain
 			// 
 			tabControlMain.Controls.Add(tabPageStudents);
@@ -125,6 +150,7 @@
 			// 
 			// tabPageStudents
 			// 
+			tabPageStudents.Controls.Add(listViewStudents);
 			tabPageStudents.Location = new Point(4, 24);
 			tabPageStudents.Name = "tabPageStudents";
 			tabPageStudents.Padding = new Padding(3);
@@ -135,6 +161,7 @@
 			// 
 			// tabPageClasses
 			// 
+			tabPageClasses.Controls.Add(listViewClasses);
 			tabPageClasses.Location = new Point(4, 24);
 			tabPageClasses.Name = "tabPageClasses";
 			tabPageClasses.Padding = new Padding(3);
@@ -145,6 +172,7 @@
 			// 
 			// tabPagePlans
 			// 
+			tabPagePlans.Controls.Add(listViewPlans);
 			tabPagePlans.Location = new Point(4, 24);
 			tabPagePlans.Name = "tabPagePlans";
 			tabPagePlans.Padding = new Padding(3);
@@ -153,26 +181,31 @@
 			tabPagePlans.Text = "Планы";
 			tabPagePlans.UseVisualStyleBackColor = true;
 			// 
-			// планToolStripMenuItem
+			// listViewStudents
 			// 
-			планToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem, редактироватьToolStripMenuItem });
-			планToolStripMenuItem.Name = "планToolStripMenuItem";
-			планToolStripMenuItem.Size = new Size(48, 20);
-			планToolStripMenuItem.Text = "&План";
+			listViewStudents.Location = new Point(0, 0);
+			listViewStudents.Name = "listViewStudents";
+			listViewStudents.Size = new Size(792, 394);
+			listViewStudents.TabIndex = 0;
+			listViewStudents.UseCompatibleStateImageBehavior = false;
 			// 
-			// добавитьToolStripMenuItem
+			// listViewClasses
 			// 
-			добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-			добавитьToolStripMenuItem.Size = new Size(180, 22);
-			добавитьToolStripMenuItem.Text = "&Добавить";
+			listViewClasses.Location = new Point(0, 0);
+			listViewClasses.Name = "listViewClasses";
+			listViewClasses.Size = new Size(792, 394);
+			listViewClasses.TabIndex = 0;
+			listViewClasses.UseCompatibleStateImageBehavior = false;
 			// 
-			// редактироватьToolStripMenuItem
+			// listViewPlans
 			// 
-			редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-			редактироватьToolStripMenuItem.Size = new Size(180, 22);
-			редактироватьToolStripMenuItem.Text = "&Редактировать";
+			listViewPlans.Location = new Point(0, 0);
+			listViewPlans.Name = "listViewPlans";
+			listViewPlans.Size = new Size(792, 394);
+			listViewPlans.TabIndex = 0;
+			listViewPlans.UseCompatibleStateImageBehavior = false;
 			// 
-			// MainForm
+			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
@@ -180,11 +213,14 @@
 			Controls.Add(tabControlMain);
 			Controls.Add(menuStrip1);
 			MainMenuStrip = menuStrip1;
-			Name = "MainForm";
+			Name = "FormMain";
 			Text = "Факультативы";
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
 			tabControlMain.ResumeLayout(false);
+			tabPageStudents.ResumeLayout(false);
+			tabPageClasses.ResumeLayout(false);
+			tabPagePlans.ResumeLayout(false);
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -207,5 +243,8 @@
 		private ToolStripMenuItem планToolStripMenuItem;
 		private ToolStripMenuItem добавитьToolStripMenuItem;
 		private ToolStripMenuItem редактироватьToolStripMenuItem;
+		private ListView listViewStudents;
+		private ListView listViewClasses;
+		private ListView listViewPlans;
 	}
 }
