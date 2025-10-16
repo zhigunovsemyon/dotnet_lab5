@@ -3,15 +3,15 @@ using Electives;
 namespace Interface
 {
 	/// <summary> Основная форма </summary>
-	public partial class MainForm : Form
+	public partial class FormMain : Form
 	{
 		/// <summary> Внутреннее поле со студентом </summary>
-		private Electives.Student student_ = new();
+		private Electives.Student _student = new();
 
 		/// <summary> Внутреннее поле с занятием </summary>
-		private Electives.Class class_ = new();
+		private Electives.Class _class = new();
 
-		public MainForm ()
+		public FormMain ()
 		{
 			InitializeComponent();
 		}
@@ -45,7 +45,7 @@ namespace Interface
 				return;
 			}
 
-			this.student_ = form.Student;
+			this._student = form.Student;
 		}
 
 		/// <summary> Обработчик поля создания нового студента </summary>
@@ -59,7 +59,7 @@ namespace Interface
 		private void StudentEditToolStripMenuItem_Click (object sender, EventArgs e)
 		{
 			//Вызов формы на копии исходного студента
-			AddOrEditStudent(student_.Clone());
+			AddOrEditStudent(_student.Clone());
 		}
 
 		/// <summary>
@@ -85,7 +85,7 @@ namespace Interface
 				return;
 			}
 
-			this.@class_ = form.Class;
+			this._class = form.Class;
 		}
 
 		/// <summary> Обработчик создания нового занятия </summary>
@@ -97,7 +97,7 @@ namespace Interface
 		/// <summary> Обработчик редактирования существующего занятия </summary>
 		private void ClassEditStripMenuItem_Click (object sender, EventArgs e)
 		{
-			AddOrEditClass(class_.Clone());
+			AddOrEditClass(_class.Clone());
 		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿namespace Interface
 {
-	partial class MainForm
+	partial class FormMain
 	{
 		/// <summary>
 		///  Required designer variable.
