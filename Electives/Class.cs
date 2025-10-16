@@ -3,11 +3,23 @@
 	/// <summary> Предмет </summary>
 	public class Class : IValidatable
 	{
+		/// <summary> Счётчик идентификаторов  </summary>
+		private static int s_newId = 0;
+
+		/// <summary> Свойство, возвращающее новый идентификатор для объекта </summary>
+		private static int NewId => s_newId++;
+
+		/// <summary> Идентификатор </summary>
+		public int Id { get; init; }
+
 		/// <summary>
 		/// Конструктор пустого предмета.
 		/// Все свойства занулены
 		/// </summary>
-		public Class() { }
+		public Class() 
+		{
+			this.Id = NewId;
+		}
 
 		/// <summary>
 		/// Параметризованный конструктор предмета
@@ -18,6 +30,7 @@
 		/// <param name="lab_works">Объём лабораторных работ</param>
 		public Class(string name, int lections, int practices, int lab_works)
 		{
+			this.Id = NewId;
 			this.Name = name;
 			this.Lections = lections;
 			this.Practices = practices;
