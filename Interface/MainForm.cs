@@ -28,24 +28,24 @@ namespace Interface
 		/// <param name="student">Обрабатываемый студент</param>
 		private void AddOrEditStudent (Electives.Student student)
 		{
-			var form = new StudentEditForm(student);
+			var form = new FormStudent(student);
 			if (DialogResult.OK != form.ShowDialog()) {
 				return;
 			}
 
-			if (form.student == null) {
+			if (form.Student == null) {
 				MessageBox.Show(
 					"StudentEditForm вернула null",
 					"Внутренняя ошибка"
 				);
 				return;
 			}
-			if (!form.student.IsValid) {
+			if (!form.Student.IsValid) {
 				MessageBox.Show("Неправильно указаны данные!");
 				return;
 			}
 
-			this.student_ = form.student;
+			this.student_ = form.Student;
 		}
 
 		/// <summary> Обработчик поля создания нового студента </summary>
@@ -59,7 +59,7 @@ namespace Interface
 		private void StudentEditToolStripMenuItem_Click (object sender, EventArgs e)
 		{
 			//Вызов формы на копии исходного студента
-			AddOrEditStudent(student_.clone());
+			AddOrEditStudent(student_.Clone());
 		}
 
 		/// <summary>
@@ -68,24 +68,24 @@ namespace Interface
 		/// <param name="class">Обрабатываемое занятие</param>
 		private void AddOrEditClass(Electives.Class @class)
 		{			
-			var form = new ClassEditForm(@class);
+			var form = new FormClass(@class);
 			if (DialogResult.OK != form.ShowDialog()) {
 				return;
 			}
 
-			if (form.@class == null) {
+			if (form.Class == null) {
 				MessageBox.Show(
 					"ClassEditForm вернула null",
 					"Внутренняя ошибка"
 				);
 				return;
 			}
-			if (!form.@class.IsValid) {
+			if (!form.Class.IsValid) {
 				MessageBox.Show("Неправильно указаны данные!");
 				return;
 			}
 
-			this.@class_ = form.@class;
+			this.@class_ = form.Class;
 		}
 
 		/// <summary> Обработчик создания нового занятия </summary>
@@ -97,7 +97,7 @@ namespace Interface
 		/// <summary> Обработчик редактирования существующего занятия </summary>
 		private void ClassEditStripMenuItem_Click (object sender, EventArgs e)
 		{
-			AddOrEditClass(class_.clone());
+			AddOrEditClass(class_.Clone());
 		}
 	}
 }

@@ -1,47 +1,47 @@
 ﻿namespace Interface
 {
 	/// <summary> Форма изменения информации о занятии </summary>
-	public partial class ClassEditForm : Form
+	public partial class FormClass : Form
 	{
 		/// <summary> Конструктор формы </summary>
 		/// <param name="class">Обрабатываемое занятие</param>
-		public ClassEditForm(Electives.Class @class)
+		public FormClass(Electives.Class @class)
 		{
 			InitializeComponent();
-			this.@class = @class;
+			this.Class = @class;
 		}
 
 		/// <summary>
 		/// Обработчик по запуске формы. 
 		/// Наполняет поля формы данными из предмета, переданного в конструкторе
 		/// </summary>
-		private void set_boxes(object sender, EventArgs e)
+		private void SetBoxes(object sender, EventArgs e)
 		{
-			this.ClassNameBox.Text = this.@class.name;
-			this.LectionsInput.Value = this.@class.lections;
-			this.PracticeInput.Value = this.@class.practices;
-			this.LabsInput.Value = this.@class.lab_works;
+			this.textBoxName.Text = this.Class.Name;
+			this.numericUpDownLectionsInput.Value = this.Class.Lections;
+			this.numericUpDownPracticeInput.Value = this.Class.Practices;
+			this.numericUpDownLabsInput.Value = this.Class.LabWorks;
 		}
 
 		/// <summary>
 		/// Метод, заполняющий свойства предмета данными из полей формы.
 		/// Вызывается при нажатии пользователем кнопки "ОК"
 		/// </summary>
-		private void get_from_boxes()
+		private void GetFromBoxes()
 		{
-			this.@class.name = this.ClassNameBox.Text;
-			this.@class.lections = ((int)this.LectionsInput.Value);
-			this.@class.practices = ((int)this.PracticeInput.Value);
-			this.@class.lab_works = ((int)this.LabsInput.Value);
+			this.Class.Name = this.textBoxName.Text;
+			this.Class.Lections = ((int)this.numericUpDownLectionsInput.Value);
+			this.Class.Practices = ((int)this.numericUpDownPracticeInput.Value);
+			this.Class.LabWorks = ((int)this.numericUpDownLabsInput.Value);
 		}
 
 		/// <summary> Свойство с занятием, обрабатываемым данной формой </summary>
-		public Electives.Class @class { get; set; }
+		public Electives.Class Class { get; set; }
 
 		/// <summary> Обработчик нажатия пользователем клавиши "ОК" </summary>
 		private void OkButton_Click(object sender, EventArgs e)
 		{
-			get_from_boxes();
+			GetFromBoxes();
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();
@@ -53,7 +53,7 @@
 		/// </summary>
 		private void ClassNameBox_LostFocus(object sender, EventArgs e)
 		{
-			this.ClassNameBox.Text = this.ClassNameBox.Text.Trim();
+			this.textBoxName.Text = this.textBoxName.Text.Trim();
 		}
 	}
 }

@@ -24,11 +24,11 @@
 		}
 
 		/// <summary> Свойство со значением оценки </summary>
-		public Type value { get; set; } = t;
+		public Type Value { get; set; } = t;
 
 		public override string ToString()
 		{
-			return value switch
+			return Value switch
 			{
 				Type.None => " ",
 				Type.Skip => "н",

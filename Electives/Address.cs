@@ -12,11 +12,11 @@
 		public Address (string region, string city, string street,
 			string house, string building = "")
 		{
-			this.region = region;
-			this.city = city;
-			this.street = street;
-			this.house = house;
-			this.building = building;
+			this.Region = region;
+			this.City = city;
+			this.Street = street;
+			this.House = house;
+			this.Building = building;
 		}
 
 		/// <summary>
@@ -26,37 +26,37 @@
 		public Address () { }
 
 		/// <summary>Административный субъект</summary>
-		public string region { get; set; } = "";
+		public string Region { get; set; } = "";
 
 		/// <summary>Город</summary>
-		public string city { get; set; } = "";
+		public string City { get; set; } = "";
 
 		/// <summary>Улица</summary>
-		public string street { get; set; } = "";
+		public string Street { get; set; } = "";
 
 		/// <summary>Дом</summary>
-		public string house { get; set; } = "";
+		public string House { get; set; } = "";
 
 		/// <summary>Строение (пустое всё ещё корректно)</summary>
-		public string building { get; set; } = "";
+		public string Building { get; set; } = "";
 
-		public bool IsValid => !(string.IsNullOrWhiteSpace(region) ||
-			string.IsNullOrWhiteSpace(city) ||
-			string.IsNullOrWhiteSpace(street) ||
-			string.IsNullOrWhiteSpace(house) ||
-			(building == null));
+		public bool IsValid => !(string.IsNullOrWhiteSpace(Region) ||
+			string.IsNullOrWhiteSpace(City) ||
+			string.IsNullOrWhiteSpace(Street) ||
+			string.IsNullOrWhiteSpace(House) ||
+			(Building == null));
 
 		/// <summary>Создание копии данного адреса</summary>
 		/// <returns>Копия исходного адреса</returns>
-		public Address clone ()
+		public Address Clone()
 		{
 			return new Address
 			{
-				region = this.region,
-				city = this.city,
-				street = this.street,
-				house = this.house,
-				building = this.building
+				Region = this.Region,
+				City = this.City,
+				Street = this.Street,
+				House = this.House,
+				Building = this.Building
 			};
 		}
 	}

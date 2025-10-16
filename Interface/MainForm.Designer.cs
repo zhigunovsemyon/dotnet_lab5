@@ -25,84 +25,84 @@
 		///  Required method for Designer support - do not modify
 		///  the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent ()
+		private void InitializeComponent()
 		{
 			menuStrip1 = new MenuStrip();
-			FileToolStripMenuItem = new ToolStripMenuItem();
-			CloseButton = new ToolStripMenuItem();
-			StudentsToolStripMenuItem = new ToolStripMenuItem();
-			StudentAddtoolStripMenuItem = new ToolStripMenuItem();
-			StudentEditToolStripMenuItem = new ToolStripMenuItem();
+			toolStripMenuItemFile = new ToolStripMenuItem();
+			toolStripMenuItemClose = new ToolStripMenuItem();
+			toolStripMenuItemStudents = new ToolStripMenuItem();
+			toolStripMenuItemAddStudent = new ToolStripMenuItem();
+			toolStripMenuItemEditStudent = new ToolStripMenuItem();
 			ClassesToolStripMenuItem = new ToolStripMenuItem();
-			ClassAddStripMenuItem = new ToolStripMenuItem();
-			ClassEditStripMenuItem = new ToolStripMenuItem();
+			toolStripMenuItemAddClass = new ToolStripMenuItem();
+			toolStripMenuItemEditClass = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// menuStrip1
 			// 
-			menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, StudentsToolStripMenuItem, ClassesToolStripMenuItem });
+			menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItemFile, toolStripMenuItemStudents, ClassesToolStripMenuItem });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
 			menuStrip1.Size = new Size(800, 24);
 			menuStrip1.TabIndex = 0;
 			menuStrip1.Text = "menuStrip1";
 			// 
-			// FileToolStripMenuItem
+			// toolStripMenuItemFile
 			// 
-			FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { CloseButton });
-			FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-			FileToolStripMenuItem.Size = new Size(48, 20);
-			FileToolStripMenuItem.Text = "&Файл";
+			toolStripMenuItemFile.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemClose });
+			toolStripMenuItemFile.Name = "toolStripMenuItemFile";
+			toolStripMenuItemFile.Size = new Size(48, 20);
+			toolStripMenuItemFile.Text = "&Файл";
 			// 
-			// CloseButton
+			// toolStripMenuItemClose
 			// 
-			CloseButton.Name = "CloseButton";
-			CloseButton.Size = new Size(109, 22);
-			CloseButton.Text = "&Выйти";
-			CloseButton.Click += CloseButton_Click;
+			toolStripMenuItemClose.Name = "toolStripMenuItemClose";
+			toolStripMenuItemClose.Size = new Size(180, 22);
+			toolStripMenuItemClose.Text = "&Выйти";
+			toolStripMenuItemClose.Click += CloseButton_Click;
 			// 
-			// StudentsToolStripMenuItem
+			// toolStripMenuItemStudents
 			// 
-			StudentsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { StudentAddtoolStripMenuItem, StudentEditToolStripMenuItem });
-			StudentsToolStripMenuItem.Name = "StudentsToolStripMenuItem";
-			StudentsToolStripMenuItem.Size = new Size(71, 20);
-			StudentsToolStripMenuItem.Text = "&Студенты";
+			toolStripMenuItemStudents.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemAddStudent, toolStripMenuItemEditStudent });
+			toolStripMenuItemStudents.Name = "toolStripMenuItemStudents";
+			toolStripMenuItemStudents.Size = new Size(71, 20);
+			toolStripMenuItemStudents.Text = "&Студенты";
 			// 
-			// StudentAddtoolStripMenuItem
+			// toolStripMenuItemAddStudent
 			// 
-			StudentAddtoolStripMenuItem.Name = "StudentAddtoolStripMenuItem";
-			StudentAddtoolStripMenuItem.Size = new Size(154, 22);
-			StudentAddtoolStripMenuItem.Text = "&Добавить";
-			StudentAddtoolStripMenuItem.Click += StudentAddtoolStripMenuItem_Click;
+			toolStripMenuItemAddStudent.Name = "toolStripMenuItemAddStudent";
+			toolStripMenuItemAddStudent.Size = new Size(180, 22);
+			toolStripMenuItemAddStudent.Text = "&Добавить";
+			toolStripMenuItemAddStudent.Click += StudentAddtoolStripMenuItem_Click;
 			// 
-			// StudentEditToolStripMenuItem
+			// toolStripMenuItemEditStudent
 			// 
-			StudentEditToolStripMenuItem.Name = "StudentEditToolStripMenuItem";
-			StudentEditToolStripMenuItem.Size = new Size(154, 22);
-			StudentEditToolStripMenuItem.Text = "&Редактировать";
-			StudentEditToolStripMenuItem.Click += StudentEditToolStripMenuItem_Click;
+			toolStripMenuItemEditStudent.Name = "toolStripMenuItemEditStudent";
+			toolStripMenuItemEditStudent.Size = new Size(180, 22);
+			toolStripMenuItemEditStudent.Text = "&Редактировать";
+			toolStripMenuItemEditStudent.Click += StudentEditToolStripMenuItem_Click;
 			// 
 			// ClassesToolStripMenuItem
 			// 
-			ClassesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ClassAddStripMenuItem, ClassEditStripMenuItem });
+			ClassesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemAddClass, toolStripMenuItemEditClass });
 			ClassesToolStripMenuItem.Name = "ClassesToolStripMenuItem";
 			ClassesToolStripMenuItem.Size = new Size(63, 20);
 			ClassesToolStripMenuItem.Text = "&Занятия";
 			// 
-			// ClassAddStripMenuItem
+			// toolStripMenuItemAddClass
 			// 
-			ClassAddStripMenuItem.Name = "ClassAddStripMenuItem";
-			ClassAddStripMenuItem.Size = new Size(180, 22);
-			ClassAddStripMenuItem.Text = "&Добавить";
-			ClassAddStripMenuItem.Click += ClassAddStripMenuItem_Click;
+			toolStripMenuItemAddClass.Name = "toolStripMenuItemAddClass";
+			toolStripMenuItemAddClass.Size = new Size(180, 22);
+			toolStripMenuItemAddClass.Text = "&Добавить";
+			toolStripMenuItemAddClass.Click += ClassAddStripMenuItem_Click;
 			// 
-			// ClassEditStripMenuItem
+			// toolStripMenuItemEditClass
 			// 
-			ClassEditStripMenuItem.Name = "ClassEditStripMenuItem";
-			ClassEditStripMenuItem.Size = new Size(180, 22);
-			ClassEditStripMenuItem.Text = "&Редактировать";
-			ClassEditStripMenuItem.Click += ClassEditStripMenuItem_Click;
+			toolStripMenuItemEditClass.Name = "toolStripMenuItemEditClass";
+			toolStripMenuItemEditClass.Size = new Size(180, 22);
+			toolStripMenuItemEditClass.Text = "&Редактировать";
+			toolStripMenuItemEditClass.Click += ClassEditStripMenuItem_Click;
 			// 
 			// MainForm
 			// 
@@ -122,13 +122,13 @@
 		#endregion
 
 		private MenuStrip menuStrip1;
-		private ToolStripMenuItem FileToolStripMenuItem;
-		private ToolStripMenuItem CloseButton;
-		private ToolStripMenuItem StudentsToolStripMenuItem;
+		private ToolStripMenuItem toolStripMenuItemFile;
+		private ToolStripMenuItem toolStripMenuItemClose;
+		private ToolStripMenuItem toolStripMenuItemStudents;
 		private ToolStripMenuItem ClassesToolStripMenuItem;
-		private ToolStripMenuItem StudentAddtoolStripMenuItem;
-		private ToolStripMenuItem StudentEditToolStripMenuItem;
-		private ToolStripMenuItem ClassAddStripMenuItem;
-		private ToolStripMenuItem ClassEditStripMenuItem;
+		private ToolStripMenuItem toolStripMenuItemAddStudent;
+		private ToolStripMenuItem toolStripMenuItemEditStudent;
+		private ToolStripMenuItem toolStripMenuItemAddClass;
+		private ToolStripMenuItem toolStripMenuItemEditClass;
 	}
 }
