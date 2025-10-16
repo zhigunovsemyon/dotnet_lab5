@@ -40,13 +40,16 @@
 			tabPageStudents = new TabPage();
 			tabPageClasses = new TabPage();
 			tabPagePlans = new TabPage();
+			планToolStripMenuItem = new ToolStripMenuItem();
+			добавитьToolStripMenuItem = new ToolStripMenuItem();
+			редактироватьToolStripMenuItem = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
 			tabControlMain.SuspendLayout();
 			SuspendLayout();
 			// 
 			// menuStrip1
 			// 
-			menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItemFile, toolStripMenuItemStudents, ClassesToolStripMenuItem });
+			menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItemFile, toolStripMenuItemStudents, ClassesToolStripMenuItem, планToolStripMenuItem });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
 			menuStrip1.Size = new Size(800, 24);
@@ -150,6 +153,25 @@
 			tabPagePlans.Text = "Планы";
 			tabPagePlans.UseVisualStyleBackColor = true;
 			// 
+			// планToolStripMenuItem
+			// 
+			планToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem, редактироватьToolStripMenuItem });
+			планToolStripMenuItem.Name = "планToolStripMenuItem";
+			планToolStripMenuItem.Size = new Size(48, 20);
+			планToolStripMenuItem.Text = "&План";
+			// 
+			// добавитьToolStripMenuItem
+			// 
+			добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
+			добавитьToolStripMenuItem.Size = new Size(180, 22);
+			добавитьToolStripMenuItem.Text = "&Добавить";
+			// 
+			// редактироватьToolStripMenuItem
+			// 
+			редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+			редактироватьToolStripMenuItem.Size = new Size(180, 22);
+			редактироватьToolStripMenuItem.Text = "&Редактировать";
+			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -182,5 +204,8 @@
 		private TabPage tabPageStudents;
 		private TabPage tabPageClasses;
 		private TabPage tabPagePlans;
+		private ToolStripMenuItem планToolStripMenuItem;
+		private ToolStripMenuItem добавитьToolStripMenuItem;
+		private ToolStripMenuItem редактироватьToolStripMenuItem;
 	}
 }
