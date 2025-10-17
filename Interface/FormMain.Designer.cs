@@ -41,10 +41,10 @@
 			редактироватьToolStripMenuItem = new ToolStripMenuItem();
 			tabControlMain = new TabControl();
 			tabPageStudents = new TabPage();
-			tabPageClasses = new TabPage();
-			tabPagePlans = new TabPage();
 			listViewStudents = new ListView();
+			tabPageClasses = new TabPage();
 			listViewClasses = new ListView();
+			tabPagePlans = new TabPage();
 			listViewPlans = new ListView();
 			menuStrip1.SuspendLayout();
 			tabControlMain.SuspendLayout();
@@ -142,10 +142,11 @@
 			tabControlMain.Controls.Add(tabPageStudents);
 			tabControlMain.Controls.Add(tabPageClasses);
 			tabControlMain.Controls.Add(tabPagePlans);
-			tabControlMain.Location = new Point(0, 27);
+			tabControlMain.Dock = DockStyle.Fill;
+			tabControlMain.Location = new Point(0, 24);
 			tabControlMain.Name = "tabControlMain";
 			tabControlMain.SelectedIndex = 0;
-			tabControlMain.Size = new Size(800, 422);
+			tabControlMain.Size = new Size(800, 426);
 			tabControlMain.TabIndex = 1;
 			// 
 			// tabPageStudents
@@ -154,10 +155,19 @@
 			tabPageStudents.Location = new Point(4, 24);
 			tabPageStudents.Name = "tabPageStudents";
 			tabPageStudents.Padding = new Padding(3);
-			tabPageStudents.Size = new Size(792, 394);
+			tabPageStudents.Size = new Size(792, 398);
 			tabPageStudents.TabIndex = 0;
 			tabPageStudents.Text = "Студенты";
 			tabPageStudents.UseVisualStyleBackColor = true;
+			// 
+			// listViewStudents
+			// 
+			listViewStudents.Dock = DockStyle.Fill;
+			listViewStudents.Location = new Point(3, 3);
+			listViewStudents.Name = "listViewStudents";
+			listViewStudents.Size = new Size(786, 392);
+			listViewStudents.TabIndex = 0;
+			listViewStudents.UseCompatibleStateImageBehavior = false;
 			// 
 			// tabPageClasses
 			// 
@@ -165,10 +175,19 @@
 			tabPageClasses.Location = new Point(4, 24);
 			tabPageClasses.Name = "tabPageClasses";
 			tabPageClasses.Padding = new Padding(3);
-			tabPageClasses.Size = new Size(792, 394);
+			tabPageClasses.Size = new Size(792, 398);
 			tabPageClasses.TabIndex = 1;
 			tabPageClasses.Text = "Занятия";
 			tabPageClasses.UseVisualStyleBackColor = true;
+			// 
+			// listViewClasses
+			// 
+			listViewClasses.Dock = DockStyle.Fill;
+			listViewClasses.Location = new Point(3, 3);
+			listViewClasses.Name = "listViewClasses";
+			listViewClasses.Size = new Size(786, 392);
+			listViewClasses.TabIndex = 0;
+			listViewClasses.UseCompatibleStateImageBehavior = false;
 			// 
 			// tabPagePlans
 			// 
@@ -176,32 +195,17 @@
 			tabPagePlans.Location = new Point(4, 24);
 			tabPagePlans.Name = "tabPagePlans";
 			tabPagePlans.Padding = new Padding(3);
-			tabPagePlans.Size = new Size(792, 394);
+			tabPagePlans.Size = new Size(792, 398);
 			tabPagePlans.TabIndex = 2;
 			tabPagePlans.Text = "Планы";
 			tabPagePlans.UseVisualStyleBackColor = true;
 			// 
-			// listViewStudents
-			// 
-			listViewStudents.Location = new Point(0, 0);
-			listViewStudents.Name = "listViewStudents";
-			listViewStudents.Size = new Size(792, 394);
-			listViewStudents.TabIndex = 0;
-			listViewStudents.UseCompatibleStateImageBehavior = false;
-			// 
-			// listViewClasses
-			// 
-			listViewClasses.Location = new Point(0, 0);
-			listViewClasses.Name = "listViewClasses";
-			listViewClasses.Size = new Size(792, 394);
-			listViewClasses.TabIndex = 0;
-			listViewClasses.UseCompatibleStateImageBehavior = false;
-			// 
 			// listViewPlans
 			// 
-			listViewPlans.Location = new Point(0, 0);
+			listViewPlans.Dock = DockStyle.Fill;
+			listViewPlans.Location = new Point(3, 3);
 			listViewPlans.Name = "listViewPlans";
-			listViewPlans.Size = new Size(792, 394);
+			listViewPlans.Size = new Size(786, 392);
 			listViewPlans.TabIndex = 0;
 			listViewPlans.UseCompatibleStateImageBehavior = false;
 			// 
