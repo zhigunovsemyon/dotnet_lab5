@@ -71,8 +71,8 @@ public class Student : IValidatable
 			Name = this.Name,
 			Surname = this.Surname,
 			Patronim = this.Patronim,
+			Id = this.Id,
 			Phone = this.Phone
-			//implicit this.Id = NewId;
 		};
 	}
 }
