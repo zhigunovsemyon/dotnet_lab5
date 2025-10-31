@@ -67,8 +67,8 @@ public class Class : IValidatable
 			Name = this.Name,
 			LabWorks = this.LabWorks,
 			Lections = this.Lections,
-			Practices = this.Practices
-			//implicit Id = NewId
+			Practices = this.Practices,
+			Id = this.Id
 		};
 	}
 }
