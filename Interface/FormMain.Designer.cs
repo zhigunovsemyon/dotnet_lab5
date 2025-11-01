@@ -42,15 +42,15 @@
 			this.tabControlMain = new TabControl();
 			this.tabPageStudents = new TabPage();
 			this.listViewStudents = new ListView();
-			this.tabPageClasses = new TabPage();
-			this.listViewClasses = new ListView();
-			this.tabPagePlans = new TabPage();
-			this.listViewPlans = new ListView();
 			this.surnameHeader = new ColumnHeader();
 			this.nameHeader = new ColumnHeader();
 			this.patronimHeader = new ColumnHeader();
 			this.phoneHeader = new ColumnHeader();
 			this.addressHeader = new ColumnHeader();
+			this.tabPageClasses = new TabPage();
+			this.listViewClasses = new ListView();
+			this.tabPagePlans = new TabPage();
+			this.listViewPlans = new ListView();
 			this.menuStrip1.SuspendLayout();
 			this.tabControlMain.SuspendLayout();
 			this.tabPageStudents.SuspendLayout();
@@ -169,12 +169,34 @@
 			// 
 			this.listViewStudents.Columns.AddRange(new ColumnHeader[] { this.surnameHeader, this.nameHeader, this.patronimHeader, this.phoneHeader, this.addressHeader });
 			this.listViewStudents.Dock = DockStyle.Fill;
+			this.listViewStudents.FullRowSelect = true;
 			this.listViewStudents.Location = new Point(3, 3);
+			this.listViewStudents.MultiSelect = false;
 			this.listViewStudents.Name = "listViewStudents";
 			this.listViewStudents.Size = new Size(786, 392);
 			this.listViewStudents.TabIndex = 0;
 			this.listViewStudents.UseCompatibleStateImageBehavior = false;
 			this.listViewStudents.View = View.Details;
+			// 
+			// surnameHeader
+			// 
+			this.surnameHeader.Text = "Фамилия";
+			// 
+			// nameHeader
+			// 
+			this.nameHeader.Text = "Имя";
+			// 
+			// patronimHeader
+			// 
+			this.patronimHeader.Text = "Отчество";
+			// 
+			// phoneHeader
+			// 
+			this.phoneHeader.Text = "Телефон";
+			// 
+			// addressHeader
+			// 
+			this.addressHeader.Text = "Адрес";
 			// 
 			// tabPageClasses
 			// 
@@ -215,26 +237,6 @@
 			this.listViewPlans.Size = new Size(786, 392);
 			this.listViewPlans.TabIndex = 0;
 			this.listViewPlans.UseCompatibleStateImageBehavior = false;
-			// 
-			// surnameHeader
-			// 
-			this.surnameHeader.Text = "Фамилия";
-			// 
-			// nameHeader
-			// 
-			this.nameHeader.Text = "Имя";
-			// 
-			// patronimHeader
-			// 
-			this.patronimHeader.Text = "Отчество";
-			// 
-			// phoneHeader
-			// 
-			this.phoneHeader.Text = "Телефон";
-			// 
-			// addressHeader
-			// 
-			this.addressHeader.Text = "Адрес";
 			// 
 			// FormMain
 			// 

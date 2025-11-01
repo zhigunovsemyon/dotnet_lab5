@@ -20,8 +20,16 @@ public partial class FormMain : Form
 	/// Метод для вызова и обработки результата работы формы изменения студента
 	/// </summary>
 	/// <param name="student">Обрабатываемый студент</param>
-	private void AddOrEditStudent (Electives.Student student)
+	private void AddOrEditStudent (Electives.Student ? student)
 	{
+		if (student == null) {
+			MessageBox.Show(
+				"AddOrEditStudent: student is null",
+				"Внутренняя ошибка"
+			);
+			return;
+		}
+
 		var form = new FormStudent(student);
 		if (DialogResult.OK != form.ShowDialog()) {
 			return;
@@ -39,7 +47,8 @@ public partial class FormMain : Form
 			return;
 		}
 
-		this._student = form.Student;
+		Journal.ListStudents.Add(form.Student.Id, form.Student);
+		UpdateStudentListView();
 	}
 
 	/// <summary> Обработчик поля создания нового студента </summary>
@@ -48,7 +57,15 @@ public partial class FormMain : Form
 
 	/// <summary> Обработчик редактирования существующего студента </summary>
 	private void StudentEditToolStripMenuItem_Click (object sender, EventArgs e)
-		=> this.AddOrEditStudent(_student.Clone()); //Вызов формы на копии исходного студента
+	{		
+		var selectedItemsList = listViewStudents.SelectedItems;
+		if (selectedItemsList.Count <= 0){
+			MessageBox.Show("Не выбран редактируемый элемент");
+			return;
+		}
+		//Вызов формы на копии исходного студента
+		this.AddOrEditStudent(selectedItemsList[0].Tag as Electives.Student); 
+	}
 	
 	/// <summary>
 	/// Метод для вызова и обработки результата работы формы изменения занятия
@@ -74,6 +91,28 @@ public partial class FormMain : Form
 		}
 
 		this._class = form.Class;
+	}
+
+	private void UpdateStudentListView ()
+	{
+		this.listViewStudents.Items.Clear();
+
+		foreach (var kvPair in Journal.ListStudents) {
+			this.listViewStudents.Items.Add(CreateStudentListViewItem(kvPair.Value));
+		}
+	}
+
+	private static ListViewItem CreateStudentListViewItem(Electives.Student student)
+	{
+		ListViewItem item = new() { Tag = student, Text = student.Surname };
+		//ListViewItem item = new ListViewItem { Tag = student, Text = student.ToString() };
+
+		item.SubItems.Add(student.Name);
+		item.SubItems.Add(student.Patronim);
+		item.SubItems.Add(student.Phone);
+		item.SubItems.Add(student.Address.ToString()); //todo
+
+		return item;
 	}
 
 	/// <summary> Обработчик создания нового занятия </summary>
