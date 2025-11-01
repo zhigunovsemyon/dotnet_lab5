@@ -90,6 +90,7 @@ public partial class FormMain : Form
 		this._class = form.Class;
 	}
 
+	/// <summary> Обновление списка студентов в форме </summary>
 	private void UpdateStudentListView ()
 	{
 		this.listViewStudents.Items.Clear();
@@ -99,6 +100,9 @@ public partial class FormMain : Form
 		}
 	}
 
+	/// <summary> Создание записи со студентом для списка в форме </summary>
+	/// <param name="student">Студент из которого создаётся запись</param>
+	/// <returns> Запись для добавления </returns>
 	private static ListViewItem CreateStudentListViewItem (Electives.Student student)
 	{
 		ListViewItem item = new() { Tag = student, Text = student.Surname };
