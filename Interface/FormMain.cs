@@ -68,8 +68,16 @@ public partial class FormMain : Form
 	/// Метод для вызова и обработки результата работы формы изменения занятия
 	/// </summary>
 	/// <param name="class">Обрабатываемое занятие</param>
-	private void AddOrEditClass (Electives.Class @class)
+	private void AddOrEditClass (Electives.Class? @class)
 	{
+		if (@class == null) {
+			MessageBox.Show(
+				"AddOrEditClass: class is null",
+				"Внутренняя ошибка"
+			);
+			return;
+		}
+
 		var form = new FormClass(@class);
 		if (DialogResult.OK != form.ShowDialog()) {
 			return;
@@ -87,7 +95,8 @@ public partial class FormMain : Form
 			return;
 		}
 
-		this._class = form.Class;
+		Journal.ListClasses[form.Class.Id] = form.Class;
+		UpdateClassListView();
 	}
 
 	/// <summary> Обновление списка студентов в форме </summary>
@@ -121,5 +130,36 @@ public partial class FormMain : Form
 
 	/// <summary> Обработчик редактирования существующего занятия </summary>
 	private void ClassEditStripMenuItem_Click (object sender, EventArgs e)
-		=> this.AddOrEditClass(_class.Clone());
+	{
+		if (listViewClasses.SelectedItems.Count <= 0) {
+			MessageBox.Show("Не выбран редактируемый элемент");
+			return;
+		}
+		this.AddOrEditClass(listViewClasses.SelectedItems[0].Tag as Electives.Class);
+
+	}
+
+	/// <summary> Обновление списка занятий в форме </summary>
+	private void UpdateClassListView ()
+	{
+		this.listViewClasses.Items.Clear();
+
+		foreach (var kvPair in Journal.ListClasses) {
+			this.listViewClasses.Items.Add(CreateClassListViewItem(kvPair.Value));
+		}
+	}
+
+	/// <summary> Создание элемента списка занятий для формы </summary>
+	/// <param name="class">Предмет, из которого создаётся запись</param>
+	/// <returns>Созданная запись</returns>
+	private static ListViewItem CreateClassListViewItem (Electives.Class @class)
+	{
+		var item = new ListViewItem { Tag = @class, Text = @class.Name };
+
+		item.SubItems.Add(@class.Lections.ToString());
+		item.SubItems.Add(@class.LabWorks.ToString());
+		item.SubItems.Add(@class.Practices.ToString());
+
+		return item;
+	}
 }
