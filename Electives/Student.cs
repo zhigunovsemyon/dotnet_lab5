@@ -59,7 +59,7 @@ public class Student : IValidatable
 	public string Phone { get; set; } = "";
 
 	public override string ToString ()
-		=> $"{Surname} {Name} {Patronim} {Phone} {Address}";
+		=> $"{Surname} {Name} {Patronim}";
 
 	/// <summary> Создание копии данного студента </summary>
 	/// <returns>Копия студента</returns>
