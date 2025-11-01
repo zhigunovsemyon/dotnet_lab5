@@ -5,9 +5,6 @@ namespace Interface;
 /// <summary> Основная форма </summary>
 public partial class FormMain : Form
 {
-	/// <summary> Внутреннее поле с занятием </summary>
-	private Electives.Class _class = new();
-
 	public FormMain () => this.InitializeComponent();
 
 	/// <summary> Метод для закрытия приложения через пункт меню </summary>
