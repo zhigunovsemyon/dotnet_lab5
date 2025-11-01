@@ -59,4 +59,8 @@ public class Address : IValidatable
 			Building = this.Building
 		};
 	}
+
+	public override string ToString () 
+		=> $"{Region}, {City}, улица {Street}, дом {House}"
+		+ (string.IsNullOrWhiteSpace(this.Building) ? "" : $", строение {Building}");
 }
