@@ -49,6 +49,10 @@
 			this.addressHeader = new ColumnHeader();
 			this.tabPageClasses = new TabPage();
 			this.listViewClasses = new ListView();
+			this.classNameHeader = new ColumnHeader();
+			this.lectionsHeader = new ColumnHeader();
+			this.labsHeader = new ColumnHeader();
+			this.practicesHeader = new ColumnHeader();
 			this.tabPagePlans = new TabPage();
 			this.listViewPlans = new ListView();
 			this.menuStrip1.SuspendLayout();
@@ -211,12 +215,33 @@
 			// 
 			// listViewClasses
 			// 
+			this.listViewClasses.Columns.AddRange(new ColumnHeader[] { this.classNameHeader, this.lectionsHeader, this.labsHeader, this.practicesHeader });
 			this.listViewClasses.Dock = DockStyle.Fill;
 			this.listViewClasses.Location = new Point(3, 3);
 			this.listViewClasses.Name = "listViewClasses";
 			this.listViewClasses.Size = new Size(786, 392);
 			this.listViewClasses.TabIndex = 0;
 			this.listViewClasses.UseCompatibleStateImageBehavior = false;
+			this.listViewClasses.View = View.Details;
+			// 
+			// classNameHeader
+			// 
+			this.classNameHeader.Text = "Название";
+			this.classNameHeader.Width = 80;
+			// 
+			// lectionsHeader
+			// 
+			this.lectionsHeader.Text = "Лекции";
+			// 
+			// labsHeader
+			// 
+			this.labsHeader.Text = "Лабораторные занятия";
+			this.labsHeader.Width = 140;
+			// 
+			// practicesHeader
+			// 
+			this.practicesHeader.Text = "Практические занятия";
+			this.practicesHeader.Width = 140;
 			// 
 			// tabPagePlans
 			// 
@@ -284,5 +309,9 @@
 		private ColumnHeader phoneHeader;
 		private ColumnHeader addressHeader;
 		protected ListView listViewStudents;
+		private ColumnHeader classNameHeader;
+		private ColumnHeader lectionsHeader;
+		private ColumnHeader labsHeader;
+		private ColumnHeader practicesHeader;
 	}
 }
