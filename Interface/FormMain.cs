@@ -5,9 +5,6 @@ namespace Interface;
 /// <summary> Основная форма </summary>
 public partial class FormMain : Form
 {
-	/// <summary> Внутреннее поле со студентом </summary>
-	private Electives.Student _student = new();
-
 	/// <summary> Внутреннее поле с занятием </summary>
 	private Electives.Class _class = new();
 
@@ -20,7 +17,7 @@ public partial class FormMain : Form
 	/// Метод для вызова и обработки результата работы формы изменения студента
 	/// </summary>
 	/// <param name="student">Обрабатываемый студент</param>
-	private void AddOrEditStudent (Electives.Student ? student)
+	private void AddOrEditStudent (Electives.Student? student)
 	{
 		if (student == null) {
 			MessageBox.Show(
@@ -52,21 +49,21 @@ public partial class FormMain : Form
 	}
 
 	/// <summary> Обработчик поля создания нового студента </summary>
-	private void StudentAddtoolStripMenuItem_Click (object sender, EventArgs e) 
+	private void StudentAddtoolStripMenuItem_Click (object sender, EventArgs e)
 		=> this.AddOrEditStudent(new Student()); //Вызов формы на чистом студенте
 
 	/// <summary> Обработчик редактирования существующего студента </summary>
 	private void StudentEditToolStripMenuItem_Click (object sender, EventArgs e)
-	{		
+	{
 		var selectedItemsList = listViewStudents.SelectedItems;
-		if (selectedItemsList.Count <= 0){
+		if (selectedItemsList.Count <= 0) {
 			MessageBox.Show("Не выбран редактируемый элемент");
 			return;
 		}
 		//Вызов формы на копии исходного студента
-		this.AddOrEditStudent(selectedItemsList[0].Tag as Electives.Student); 
+		this.AddOrEditStudent(selectedItemsList[0].Tag as Electives.Student);
 	}
-	
+
 	/// <summary>
 	/// Метод для вызова и обработки результата работы формы изменения занятия
 	/// </summary>
@@ -102,14 +99,14 @@ public partial class FormMain : Form
 		}
 	}
 
-	private static ListViewItem CreateStudentListViewItem(Electives.Student student)
+	private static ListViewItem CreateStudentListViewItem (Electives.Student student)
 	{
 		ListViewItem item = new() { Tag = student, Text = student.Surname };
 
 		item.SubItems.Add(student.Name);
 		item.SubItems.Add(student.Patronim);
 		item.SubItems.Add(student.Phone);
-		item.SubItems.Add(student.Address.ToString()); 
+		item.SubItems.Add(student.Address.ToString());
 
 		return item;
 	}
@@ -119,6 +116,6 @@ public partial class FormMain : Form
 		=> this.AddOrEditClass(new Class());
 
 	/// <summary> Обработчик редактирования существующего занятия </summary>
-	private void ClassEditStripMenuItem_Click (object sender, EventArgs e) 
+	private void ClassEditStripMenuItem_Click (object sender, EventArgs e)
 		=> this.AddOrEditClass(_class.Clone());
 }

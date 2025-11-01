@@ -60,7 +60,7 @@ public class Address : IValidatable
 		};
 	}
 
-	public override string ToString () 
+	public override string ToString ()
 		=> $"{Region}, {City}, улица {Street}, дом {House}"
 		+ (string.IsNullOrWhiteSpace(this.Building) ? "" : $", строение {Building}");
 }
