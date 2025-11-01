@@ -185,6 +185,7 @@
 			// surnameHeader
 			// 
 			this.surnameHeader.Text = "Фамилия";
+			this.surnameHeader.Width = 80;
 			// 
 			// nameHeader
 			// 
@@ -193,14 +194,17 @@
 			// patronimHeader
 			// 
 			this.patronimHeader.Text = "Отчество";
+			this.patronimHeader.Width = 80;
 			// 
 			// phoneHeader
 			// 
 			this.phoneHeader.Text = "Телефон";
+			this.phoneHeader.Width = 80;
 			// 
 			// addressHeader
 			// 
 			this.addressHeader.Text = "Адрес";
+			this.addressHeader.Width = 120;
 			// 
 			// tabPageClasses
 			// 
