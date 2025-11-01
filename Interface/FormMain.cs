@@ -172,8 +172,11 @@ public partial class FormMain : Form
 			MessageBox.Show("sender is not ListView or null");
 			return;
 		}
-
-		this.AddOrEditStudent(list.SelectedItems[0].Tag as Electives.Student);
+		if (list.SelectedItems[0].Tag is not Electives.Student student) {
+			MessageBox.Show("selected list item is not student");
+			return;
+		};
+		this.AddOrEditStudent(student.Clone());
 	}
 
 	/// <summary> Ивент для двойного нажатия по предмету в форме </summary>
@@ -189,16 +192,60 @@ public partial class FormMain : Form
 			return;
 		}
 
-		this.AddOrEditClass(list.SelectedItems[0].Tag as Electives.Class);
+		if (list.SelectedItems[0].Tag is not Electives.Class @class){
+			MessageBox.Show("selected list item is not class");
+			return;
+		}
+		this.AddOrEditClass(@class);
 	}
 
-	private void PlanAddStripMenuItem_Click (object sender, EventArgs e)
-	{
-		new FormPlan().Show();
-	}
+	/// <summary> Обработчик создания нового плана </summary>
+	private void PlanAddStripMenuItem_Click (object sender, EventArgs e) 
+		=> this.AddOrEditPlan(new Electives.Plan());
 
+	/// <summary> Обработчик редактирования плана </summary>
 	private void PlanEditStripMenuItem_Click (object sender, EventArgs e)
 	{
-		new FormPlan().Show();
+		if (listViewPlans.SelectedItems.Count <= 0) {
+			MessageBox.Show("Не выбран редактируемый элемент");
+			return;
+		}
+
+		this.AddOrEditPlan(listViewPlans.SelectedItems[0].Tag as Electives.Plan);
+	}
+
+	/// <summary>
+	/// Метод для вызова и обработки результата работы формы изменения плана
+	/// </summary>
+	/// <param name="plan">Обрабатываемый план</param>
+	private void AddOrEditPlan(Electives.Plan? plan)
+	{
+		if (plan == null) {
+			MessageBox.Show(
+				"AddOrEditPlan: plan is null",
+				"Внутренняя ошибка"
+			);
+			return;
+		}
+
+		var form = new FormPlan(plan);
+		if (DialogResult.OK != form.ShowDialog()) {
+			return;
+		};
+
+		if (form.Plan == null) {
+			MessageBox.Show(
+				"PlanEditForm вернула null",
+				"Внутренняя ошибка"
+			);
+			return;
+		}
+		if (!form.Plan.IsValid) {
+			MessageBox.Show("Неправильно указаны данные!");
+			return;
+		}
+
+		//Journal.ListPlans[form.Plan.Id] = form.Plan;
+		//UpdatePlanListView();
 	}
 }
