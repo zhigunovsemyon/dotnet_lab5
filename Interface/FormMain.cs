@@ -159,4 +159,20 @@ public partial class FormMain : Form
 
 		return item;
 	}
+
+	/// <summary> Ивент для двойного нажатия по элементу </summary>
+	/// <param name="sender"> Список студентов в форме </param>
+	/// <param name="e"> Параметры мыши </param>
+	private void listViewStudents_MouseDoubleClick (object sender, MouseEventArgs e)
+	{
+		if (e.Button != MouseButtons.Left) {
+			return;
+		}
+		if (sender is not ListView list) {
+			MessageBox.Show("sender is not ListView or null");
+			return;
+		}
+
+		this.AddOrEditStudent(list.SelectedItems[0].Tag as Electives.Student);
+	}
 }

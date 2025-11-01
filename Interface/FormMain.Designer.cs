@@ -184,6 +184,7 @@
 			this.listViewStudents.TabIndex = 0;
 			this.listViewStudents.UseCompatibleStateImageBehavior = false;
 			this.listViewStudents.View = View.Details;
+			this.listViewStudents.MouseDoubleClick += this.listViewStudents_MouseDoubleClick;
 			// 
 			// surnameHeader
 			// 
