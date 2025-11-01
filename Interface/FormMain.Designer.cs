@@ -37,8 +37,8 @@
 			this.toolStripMenuItemAddClass = new ToolStripMenuItem();
 			this.toolStripMenuItemEditClass = new ToolStripMenuItem();
 			this.планToolStripMenuItem = new ToolStripMenuItem();
-			this.добавитьToolStripMenuItem = new ToolStripMenuItem();
-			this.редактироватьToolStripMenuItem = new ToolStripMenuItem();
+			this.ToolStripMenuItemAddPlan = new ToolStripMenuItem();
+			this.ToolStripMenuItemEditPlan = new ToolStripMenuItem();
 			this.tabControlMain = new TabControl();
 			this.tabPageStudents = new TabPage();
 			this.listViewStudents = new ListView();
@@ -84,7 +84,7 @@
 			// toolStripMenuItemClose
 			// 
 			this.toolStripMenuItemClose.Name = "toolStripMenuItemClose";
-			this.toolStripMenuItemClose.Size = new Size(109, 22);
+			this.toolStripMenuItemClose.Size = new Size(180, 22);
 			this.toolStripMenuItemClose.Text = "&Выйти";
 			this.toolStripMenuItemClose.Click += this.CloseButton_Click;
 			// 
@@ -98,14 +98,14 @@
 			// toolStripMenuItemAddStudent
 			// 
 			this.toolStripMenuItemAddStudent.Name = "toolStripMenuItemAddStudent";
-			this.toolStripMenuItemAddStudent.Size = new Size(154, 22);
+			this.toolStripMenuItemAddStudent.Size = new Size(180, 22);
 			this.toolStripMenuItemAddStudent.Text = "&Добавить";
 			this.toolStripMenuItemAddStudent.Click += this.StudentAddtoolStripMenuItem_Click;
 			// 
 			// toolStripMenuItemEditStudent
 			// 
 			this.toolStripMenuItemEditStudent.Name = "toolStripMenuItemEditStudent";
-			this.toolStripMenuItemEditStudent.Size = new Size(154, 22);
+			this.toolStripMenuItemEditStudent.Size = new Size(180, 22);
 			this.toolStripMenuItemEditStudent.Text = "&Редактировать";
 			this.toolStripMenuItemEditStudent.Click += this.StudentEditToolStripMenuItem_Click;
 			// 
@@ -132,24 +132,24 @@
 			// 
 			// планToolStripMenuItem
 			// 
-			this.планToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { this.добавитьToolStripMenuItem, this.редактироватьToolStripMenuItem });
+			this.планToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { this.ToolStripMenuItemAddPlan, this.ToolStripMenuItemEditPlan });
 			this.планToolStripMenuItem.Name = "планToolStripMenuItem";
 			this.планToolStripMenuItem.Size = new Size(48, 20);
 			this.планToolStripMenuItem.Text = "&План";
 			// 
-			// добавитьToolStripMenuItem
+			// ToolStripMenuItemAddPlan
 			// 
-			this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-			this.добавитьToolStripMenuItem.Size = new Size(180, 22);
-			this.добавитьToolStripMenuItem.Text = "&Добавить";
-			this.добавитьToolStripMenuItem.Click += this.PlanAddStripMenuItem_Click;
+			this.ToolStripMenuItemAddPlan.Name = "ToolStripMenuItemAddPlan";
+			this.ToolStripMenuItemAddPlan.Size = new Size(180, 22);
+			this.ToolStripMenuItemAddPlan.Text = "&Добавить";
+			this.ToolStripMenuItemAddPlan.Click += this.PlanAddStripMenuItem_Click;
 			// 
-			// редактироватьToolStripMenuItem
+			// ToolStripMenuItemEditPlan
 			// 
-			this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-			this.редактироватьToolStripMenuItem.Size = new Size(180, 22);
-			this.редактироватьToolStripMenuItem.Text = "&Редактировать";
-			this.редактироватьToolStripMenuItem.Click += this.PlanEditStripMenuItem_Click;
+			this.ToolStripMenuItemEditPlan.Name = "ToolStripMenuItemEditPlan";
+			this.ToolStripMenuItemEditPlan.Size = new Size(180, 22);
+			this.ToolStripMenuItemEditPlan.Text = "&Редактировать";
+			this.ToolStripMenuItemEditPlan.Click += this.PlanEditStripMenuItem_Click;
 			// 
 			// tabControlMain
 			// 
@@ -328,8 +328,8 @@
 		private TabPage tabPageClasses;
 		private TabPage tabPagePlans;
 		private ToolStripMenuItem планToolStripMenuItem;
-		private ToolStripMenuItem добавитьToolStripMenuItem;
-		private ToolStripMenuItem редактироватьToolStripMenuItem;
+		private ToolStripMenuItem ToolStripMenuItemAddPlan;
+		private ToolStripMenuItem ToolStripMenuItemEditPlan;
 		private ListView listViewClasses;
 		private ListView listViewPlans;
 		private ColumnHeader surnameHeader;
