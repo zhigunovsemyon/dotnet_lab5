@@ -55,6 +55,9 @@
 			this.practicesHeader = new ColumnHeader();
 			this.tabPagePlans = new TabPage();
 			this.listViewPlans = new ListView();
+			this.planStudentHeader = new ColumnHeader();
+			this.planClassHeader = new ColumnHeader();
+			this.planMarkHeader = new ColumnHeader();
 			this.menuStrip1.SuspendLayout();
 			this.tabControlMain.SuspendLayout();
 			this.tabPageStudents.SuspendLayout();
@@ -260,12 +263,28 @@
 			// 
 			// listViewPlans
 			// 
+			this.listViewPlans.Columns.AddRange(new ColumnHeader[] { this.planStudentHeader, this.planClassHeader, this.planMarkHeader });
 			this.listViewPlans.Dock = DockStyle.Fill;
 			this.listViewPlans.Location = new Point(3, 3);
 			this.listViewPlans.Name = "listViewPlans";
 			this.listViewPlans.Size = new Size(786, 392);
 			this.listViewPlans.TabIndex = 0;
 			this.listViewPlans.UseCompatibleStateImageBehavior = false;
+			this.listViewPlans.View = View.Details;
+			// 
+			// planStudentHeader
+			// 
+			this.planStudentHeader.Text = "Студент";
+			this.planStudentHeader.Width = 100;
+			// 
+			// planClassHeader
+			// 
+			this.planClassHeader.Text = "Предмет";
+			this.planClassHeader.Width = 80;
+			// 
+			// planMarkHeader
+			// 
+			this.planMarkHeader.Text = "Оценка";
 			// 
 			// FormMain
 			// 
@@ -317,5 +336,8 @@
 		private ColumnHeader lectionsHeader;
 		private ColumnHeader labsHeader;
 		private ColumnHeader practicesHeader;
+		private ColumnHeader planStudentHeader;
+		private ColumnHeader planClassHeader;
+		private ColumnHeader planMarkHeader;
 	}
 }
