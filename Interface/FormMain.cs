@@ -47,7 +47,7 @@ public partial class FormMain : Form
 			return;
 		}
 
-		Journal.ListStudents.Add(form.Student.Id, form.Student);
+		Journal.ListStudents[form.Student.Id] = form.Student;
 		UpdateStudentListView();
 	}
 
@@ -105,12 +105,11 @@ public partial class FormMain : Form
 	private static ListViewItem CreateStudentListViewItem(Electives.Student student)
 	{
 		ListViewItem item = new() { Tag = student, Text = student.Surname };
-		//ListViewItem item = new ListViewItem { Tag = student, Text = student.ToString() };
 
 		item.SubItems.Add(student.Name);
 		item.SubItems.Add(student.Patronim);
 		item.SubItems.Add(student.Phone);
-		item.SubItems.Add(student.Address.ToString()); //todo
+		item.SubItems.Add(student.Address.ToString()); 
 
 		return item;
 	}
