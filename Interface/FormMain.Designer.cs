@@ -225,7 +225,9 @@
 			// 
 			this.listViewClasses.Columns.AddRange(new ColumnHeader[] { this.classNameHeader, this.lectionsHeader, this.labsHeader, this.practicesHeader });
 			this.listViewClasses.Dock = DockStyle.Fill;
+			this.listViewClasses.FullRowSelect = true;
 			this.listViewClasses.Location = new Point(3, 3);
+			this.listViewClasses.MultiSelect = false;
 			this.listViewClasses.Name = "listViewClasses";
 			this.listViewClasses.Size = new Size(786, 392);
 			this.listViewClasses.TabIndex = 0;
