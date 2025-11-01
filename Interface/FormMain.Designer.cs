@@ -140,14 +140,16 @@
 			// добавитьToolStripMenuItem
 			// 
 			this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-			this.добавитьToolStripMenuItem.Size = new Size(154, 22);
+			this.добавитьToolStripMenuItem.Size = new Size(180, 22);
 			this.добавитьToolStripMenuItem.Text = "&Добавить";
+			this.добавитьToolStripMenuItem.Click += this.PlanAddStripMenuItem_Click;
 			// 
 			// редактироватьToolStripMenuItem
 			// 
 			this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-			this.редактироватьToolStripMenuItem.Size = new Size(154, 22);
+			this.редактироватьToolStripMenuItem.Size = new Size(180, 22);
 			this.редактироватьToolStripMenuItem.Text = "&Редактировать";
+			this.редактироватьToolStripMenuItem.Click += this.PlanEditStripMenuItem_Click;
 			// 
 			// tabControlMain
 			// 

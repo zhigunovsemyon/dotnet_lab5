@@ -191,4 +191,14 @@ public partial class FormMain : Form
 
 		this.AddOrEditClass(list.SelectedItems[0].Tag as Electives.Class);
 	}
+
+	private void PlanAddStripMenuItem_Click (object sender, EventArgs e)
+	{
+		new FormPlan().Show();
+	}
+
+	private void PlanEditStripMenuItem_Click (object sender, EventArgs e)
+	{
+		new FormPlan().Show();
+	}
 }
