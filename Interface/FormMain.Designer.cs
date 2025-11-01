@@ -231,6 +231,7 @@
 			this.listViewClasses.TabIndex = 0;
 			this.listViewClasses.UseCompatibleStateImageBehavior = false;
 			this.listViewClasses.View = View.Details;
+			this.listViewClasses.MouseDoubleClick += this.listViewClasses_MouseDoubleClick;
 			// 
 			// classNameHeader
 			// 
