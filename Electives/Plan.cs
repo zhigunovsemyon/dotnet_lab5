@@ -46,5 +46,5 @@ public class Plan : IValidatable
 
 	/// <summary> Создание копии текущего плана </summary>
 	/// <returns>Копия плана</returns>
-	public Plan Сlone () => new(Student.Clone(), Class.Clone(), new Mark(this.Mark.Value));
+	public Plan Clone () => new(Student.Clone(), Class.Clone(), new Mark(this.Mark.Value));
 }
