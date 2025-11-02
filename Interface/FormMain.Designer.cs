@@ -84,7 +84,7 @@
 			// toolStripMenuItemClose
 			// 
 			this.toolStripMenuItemClose.Name = "toolStripMenuItemClose";
-			this.toolStripMenuItemClose.Size = new Size(180, 22);
+			this.toolStripMenuItemClose.Size = new Size(109, 22);
 			this.toolStripMenuItemClose.Text = "&Выйти";
 			this.toolStripMenuItemClose.Click += this.CloseButton_Click;
 			// 
@@ -98,14 +98,14 @@
 			// toolStripMenuItemAddStudent
 			// 
 			this.toolStripMenuItemAddStudent.Name = "toolStripMenuItemAddStudent";
-			this.toolStripMenuItemAddStudent.Size = new Size(180, 22);
+			this.toolStripMenuItemAddStudent.Size = new Size(154, 22);
 			this.toolStripMenuItemAddStudent.Text = "&Добавить";
 			this.toolStripMenuItemAddStudent.Click += this.StudentAddtoolStripMenuItem_Click;
 			// 
 			// toolStripMenuItemEditStudent
 			// 
 			this.toolStripMenuItemEditStudent.Name = "toolStripMenuItemEditStudent";
-			this.toolStripMenuItemEditStudent.Size = new Size(180, 22);
+			this.toolStripMenuItemEditStudent.Size = new Size(154, 22);
 			this.toolStripMenuItemEditStudent.Text = "&Редактировать";
 			this.toolStripMenuItemEditStudent.Click += this.StudentEditToolStripMenuItem_Click;
 			// 
@@ -140,14 +140,14 @@
 			// ToolStripMenuItemAddPlan
 			// 
 			this.ToolStripMenuItemAddPlan.Name = "ToolStripMenuItemAddPlan";
-			this.ToolStripMenuItemAddPlan.Size = new Size(180, 22);
+			this.ToolStripMenuItemAddPlan.Size = new Size(154, 22);
 			this.ToolStripMenuItemAddPlan.Text = "&Добавить";
 			this.ToolStripMenuItemAddPlan.Click += this.PlanAddStripMenuItem_Click;
 			// 
 			// ToolStripMenuItemEditPlan
 			// 
 			this.ToolStripMenuItemEditPlan.Name = "ToolStripMenuItemEditPlan";
-			this.ToolStripMenuItemEditPlan.Size = new Size(180, 22);
+			this.ToolStripMenuItemEditPlan.Size = new Size(154, 22);
 			this.ToolStripMenuItemEditPlan.Text = "&Редактировать";
 			this.ToolStripMenuItemEditPlan.Click += this.PlanEditStripMenuItem_Click;
 			// 
@@ -271,7 +271,9 @@
 			// 
 			this.listViewPlans.Columns.AddRange(new ColumnHeader[] { this.planStudentHeader, this.planClassHeader, this.planMarkHeader });
 			this.listViewPlans.Dock = DockStyle.Fill;
+			this.listViewPlans.FullRowSelect = true;
 			this.listViewPlans.Location = new Point(3, 3);
+			this.listViewPlans.MultiSelect = false;
 			this.listViewPlans.Name = "listViewPlans";
 			this.listViewPlans.Size = new Size(786, 392);
 			this.listViewPlans.TabIndex = 0;
