@@ -46,6 +46,8 @@ public partial class FormPlan : Form
 			this.comboBoxMarks.Items.Add(posMark);
 		}
 
+		//todo: наполнение полей при редактировании существующего плана
+
 		this.comboBoxMarks.SelectedIndex = (int)this.Plan.Mark.Value;
 		this.comboBoxStudents.SelectedItem = this.Plan.Student;
 		this.comboBoxClasses.SelectedItem = this.Plan.Class;

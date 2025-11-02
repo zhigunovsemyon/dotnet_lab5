@@ -175,7 +175,8 @@ public partial class FormMain : Form
 		if (list.SelectedItems[0].Tag is not Electives.Student student) {
 			MessageBox.Show("selected list item is not student");
 			return;
-		};
+		}
+		;
 		this.AddOrEditStudent(student.Clone());
 	}
 
@@ -192,7 +193,7 @@ public partial class FormMain : Form
 			return;
 		}
 
-		if (list.SelectedItems[0].Tag is not Electives.Class @class){
+		if (list.SelectedItems[0].Tag is not Electives.Class @class) {
 			MessageBox.Show("selected list item is not class");
 			return;
 		}
@@ -200,8 +201,16 @@ public partial class FormMain : Form
 	}
 
 	/// <summary> Обработчик создания нового плана </summary>
-	private void PlanAddStripMenuItem_Click (object sender, EventArgs e) 
-		=> this.AddOrEditPlan(new Electives.Plan());
+	private void PlanAddStripMenuItem_Click (object sender, EventArgs e)
+	{ 
+		var newPlan = AddOrEditPlan(new Electives.Plan());
+		if (newPlan == null) { 
+			return;
+		}
+
+		Journal.ListPlans.Add(newPlan);
+		UpdatePlanListView ();
+	}
 
 	/// <summary> Обработчик редактирования плана </summary>
 	private void PlanEditStripMenuItem_Click (object sender, EventArgs e)
@@ -210,22 +219,34 @@ public partial class FormMain : Form
 			MessageBox.Show("Не выбран редактируемый элемент");
 			return;
 		}
+		if (listViewPlans.SelectedItems[0].Tag is not Electives.Plan origPlan) {
+			MessageBox.Show("selected list item is not plan");
+			return;
+		}
 
-		this.AddOrEditPlan(listViewPlans.SelectedItems[0].Tag as Electives.Plan);
+		var newPlan = AddOrEditPlan(origPlan.Clone());
+		if (newPlan == null) { 
+			return;
+		}
+
+		Journal.ListPlans.Remove(origPlan);
+		Journal.ListPlans.Add(newPlan);
+		UpdatePlanListView();
 	}
 
 	/// <summary>
 	/// Метод для вызова и обработки результата работы формы изменения плана
 	/// </summary>
 	/// <param name="plan">Обрабатываемый план</param>
-	private void AddOrEditPlan(Electives.Plan? plan)
+	/// <returns> Изменённый план при успехе, null при неудаче </returns>
+	private static Electives.Plan? AddOrEditPlan (Electives.Plan? plan)
 	{
 		if (plan == null) {
 			MessageBox.Show(
 				"AddOrEditPlan: plan is null",
 				"Внутренняя ошибка"
 			);
-			return;
+			return null;
 		}
 
 		var form = new FormPlan(plan);
@@ -233,26 +254,44 @@ public partial class FormMain : Form
 
 		if (DialogResult.Retry == res) {
 			MessageBox.Show("Неправильно указаны данные!");
-			return;
+			return null;
 		}
 
 		if (DialogResult.OK != res) {
-			return;
-		};
+			return null;
+		}
 
 		if (form.Plan == null) {
 			MessageBox.Show(
 				"PlanEditForm вернула null",
 				"Внутренняя ошибка"
 			);
-			return;
+			return null;
 		}
 		if (!form.Plan.IsValid) {
 			MessageBox.Show("Неправильно указаны данные!");
-			return;
+			return null;
 		}
 
-		//Journal.ListPlans[form.Plan.Id] = form.Plan;
-		//UpdatePlanListView();
+		return form.Plan;
+	}
+
+	private void UpdatePlanListView ()
+	{
+		this.listViewPlans.Items.Clear();
+
+		foreach (var plan in Journal.ListPlans) {
+			this.listViewPlans.Items.Add(CreatePlanListViewItem(plan));
+		}
+	}
+
+	private static ListViewItem CreatePlanListViewItem (Electives.Plan plan)
+	{
+		ListViewItem item = new() { Tag = plan, Text = plan.Student.ToString() };
+
+		item.SubItems.Add(plan.Class.ToString());
+		item.SubItems.Add(plan.Mark.ToString());
+
+		return item;
 	}
 }
