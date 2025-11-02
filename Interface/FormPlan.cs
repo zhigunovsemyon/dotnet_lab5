@@ -35,21 +35,24 @@ public partial class FormPlan : Form
 	private void FormPlan_SetBoxes (object sender, EventArgs e)
 	{
 		foreach (var kvPair in Journal.ListClasses) { 
-			this.comboBoxClasses.Items.Add(kvPair.Value);
+			var idx = this.comboBoxClasses.Items.Add(kvPair.Value);
+			if (kvPair.Value.Id == this.Plan.Class.Id){
+				this.comboBoxClasses.SelectedIndex = idx;
+			}
 		}
 
 		foreach (var kvPair in Journal.ListStudents) {
-			this.comboBoxStudents.Items.Add(kvPair.Value);
+			var idx = this.comboBoxStudents.Items.Add(kvPair.Value);
+			if (kvPair.Value.Id == this.Plan.Student.Id) {
+				this.comboBoxStudents.SelectedIndex = idx;
+			}
 		}
 
 		foreach (var posMark in Electives.Mark.Types){
 			this.comboBoxMarks.Items.Add(posMark);
 		}
 
-		//todo: наполнение полей при редактировании существующего плана
-
 		this.comboBoxMarks.SelectedIndex = (int)this.Plan.Mark.Value;
-		this.comboBoxStudents.SelectedItem = this.Plan.Student;
-		this.comboBoxClasses.SelectedItem = this.Plan.Class;
+		
 	}
 }
