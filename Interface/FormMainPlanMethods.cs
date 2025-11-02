@@ -38,6 +38,33 @@ public partial class FormMain : Form
 		UpdatePlanListView();
 	}
 
+	/// <summary> Обработчик редактирования плана по двойному нажатию </summary>
+	/// <param name="sender"> Список планов в форме </param>
+	/// <param name="e"> Параметры мыши </param>
+	private void listViewPlans_MouseDoubleClick (object sender, MouseEventArgs e)
+	{
+		if (e.Button != MouseButtons.Left) {
+			return;
+		}
+		if (sender is not ListView list) {
+			MessageBox.Show("sender is not ListView or null");
+			return;
+		}
+		if (list.SelectedItems[0].Tag is not Electives.Plan origPlan) {
+			MessageBox.Show("selected list item is not plan");
+			return;
+		}
+
+		var newPlan = AddOrEditPlan(origPlan.Clone());
+		if (newPlan == null) {
+			return;
+		}
+
+		Journal.ListPlans.Remove(origPlan);
+		Journal.ListPlans.Add(newPlan);
+		UpdatePlanListView();
+	}
+
 	/// <summary>
 	/// Метод для вызова и обработки результата работы формы изменения плана
 	/// </summary>

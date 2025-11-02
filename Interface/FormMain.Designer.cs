@@ -279,6 +279,7 @@
 			this.listViewPlans.TabIndex = 0;
 			this.listViewPlans.UseCompatibleStateImageBehavior = false;
 			this.listViewPlans.View = View.Details;
+			this.listViewPlans.MouseDoubleClick += this.listViewPlans_MouseDoubleClick;
 			// 
 			// planStudentHeader
 			// 
