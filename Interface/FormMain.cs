@@ -229,7 +229,14 @@ public partial class FormMain : Form
 		}
 
 		var form = new FormPlan(plan);
-		if (DialogResult.OK != form.ShowDialog()) {
+		DialogResult res = form.ShowDialog();
+
+		if (DialogResult.Retry == res) {
+			MessageBox.Show("Неправильно указаны данные!");
+			return;
+		}
+
+		if (DialogResult.OK != res) {
 			return;
 		};
 

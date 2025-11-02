@@ -33,6 +33,8 @@
 			this.comboBoxClasses = new ComboBox();
 			this.buttonOK = new Button();
 			this.buttonClose = new Button();
+			this.comboBoxMarks = new ComboBox();
+			this.labelMark = new Label();
 			this.SuspendLayout();
 			// 
 			// labelStudent
@@ -59,7 +61,7 @@
 			this.comboBoxStudents.Location = new Point(12, 27);
 			this.comboBoxStudents.Name = "comboBoxStudents";
 			this.comboBoxStudents.Size = new Size(272, 23);
-			this.comboBoxStudents.TabIndex = 2;
+			this.comboBoxStudents.TabIndex = 1;
 			// 
 			// comboBoxClasses
 			// 
@@ -67,11 +69,11 @@
 			this.comboBoxClasses.Location = new Point(12, 83);
 			this.comboBoxClasses.Name = "comboBoxClasses";
 			this.comboBoxClasses.Size = new Size(272, 23);
-			this.comboBoxClasses.TabIndex = 3;
+			this.comboBoxClasses.TabIndex = 2;
 			// 
 			// buttonOK
 			// 
-			this.buttonOK.Location = new Point(128, 229);
+			this.buttonOK.Location = new Point(125, 183);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new Size(75, 23);
 			this.buttonOK.TabIndex = 4;
@@ -81,7 +83,7 @@
 			// 
 			// buttonClose
 			// 
-			this.buttonClose.Location = new Point(209, 229);
+			this.buttonClose.Location = new Point(209, 183);
 			this.buttonClose.Name = "buttonClose";
 			this.buttonClose.Size = new Size(75, 23);
 			this.buttonClose.TabIndex = 5;
@@ -89,13 +91,32 @@
 			this.buttonClose.UseVisualStyleBackColor = true;
 			this.buttonClose.Click += this.buttonClose_Click;
 			// 
+			// comboBoxMarks
+			// 
+			this.comboBoxMarks.FormattingEnabled = true;
+			this.comboBoxMarks.Location = new Point(12, 143);
+			this.comboBoxMarks.Name = "comboBoxMarks";
+			this.comboBoxMarks.Size = new Size(272, 23);
+			this.comboBoxMarks.TabIndex = 3;
+			// 
+			// labelMark
+			// 
+			this.labelMark.AutoSize = true;
+			this.labelMark.Location = new Point(12, 125);
+			this.labelMark.Name = "labelMark";
+			this.labelMark.Size = new Size(48, 15);
+			this.labelMark.TabIndex = 7;
+			this.labelMark.Text = "Оценка";
+			// 
 			// FormPlan
 			// 
 			this.AcceptButton = this.buttonOK;
 			this.AutoScaleDimensions = new SizeF(7F, 15F);
 			this.AutoScaleMode = AutoScaleMode.Font;
 			this.CancelButton = this.buttonClose;
-			this.ClientSize = new Size(306, 264);
+			this.ClientSize = new Size(306, 221);
+			this.Controls.Add(this.labelMark);
+			this.Controls.Add(this.comboBoxMarks);
 			this.Controls.Add(this.buttonClose);
 			this.Controls.Add(this.buttonOK);
 			this.Controls.Add(this.comboBoxClasses);
@@ -107,6 +128,7 @@
 			this.Name = "FormPlan";
 			this.ShowIcon = false;
 			this.Text = "Информация об учебном плане";
+			this.Load += this.FormPlan_SetBoxes;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
@@ -119,5 +141,7 @@
 		private ComboBox comboBoxClasses;
 		private Button buttonOK;
 		private Button buttonClose;
+		private ComboBox comboBoxMarks;
+		private Label labelMark;
 	}
 }
