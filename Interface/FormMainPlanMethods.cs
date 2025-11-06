@@ -107,6 +107,7 @@ public partial class FormMain : Form
 		return form.Plan;
 	}
 
+	/// <summary> Обновление списка планов в форме </summary>
 	private void UpdatePlanListView ()
 	{
 		this.listViewPlans.Items.Clear();
@@ -116,6 +117,9 @@ public partial class FormMain : Form
 		}
 	}
 
+	/// <summary> Создание элемента списка планов для формы </summary>
+	/// <param name="plan"> План, из которого он будет создаваться </param>
+	/// <returns> Созданный элемент </returns>
 	private static ListViewItem CreatePlanListViewItem (Electives.Plan plan)
 	{
 		ListViewItem item = new() { Tag = plan, Text = plan.Student.ToString() };
